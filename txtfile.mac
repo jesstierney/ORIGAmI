@@ -1,0 +1,21 @@
+Name txtfile
+
+Local cols,runtime,signal,i,j
+
+MkDir "C:\Chem32\1\data\yoursamples\"+ObjHdrText$(Chromreg,"samplename")+""
+
+for j=1 to RegSize(Chromreg)
+cols=DataCols(Chromreg[j])
+Open "C:\Chem32\1\data\yoursamples\"+ObjHdrText$(Chromreg,"samplename")+"\"+ObjHdrText$(Chromreg[j],"signalid")+".txt" For Output as #5
+
+For i=1 To cols
+runtime=Data(Chromreg[j],0,i)
+signal=Data(Chromreg[j],1,i)
+print#5,runtime,signal
+Next i
+
+Close#5
+next j
+
+Print "Finished"
+endmacro

@@ -404,11 +404,10 @@ function Output=getHPLCAreas(varargin)
                 if ShowGraphs
                     figure; hold on
                     
-                    Colors=[192, 192, 192]./255;
+                    Colors=[0 .5 1];
                     
                     for j=1:length(ind_peaks)
                         area(xgauss(left(j):right(j),j),ygauss(left(j):right(j),j),'FaceColor',Colors,'EdgeColor',Colors); % Fill in AUC
-                        area(xgauss(left(j):right(j),j),0.*ones(right(j)-left(j)+1),'FaceColor','w','EdgeColor','none');
                     end
                     
                     plot(X,Y,'k');
